@@ -1,14 +1,116 @@
 
 
-def sum_down(n):
-    if n == 0:
-        return 0
-    return n + sum_down(n - 1)
+# ================================
+# MY COUNTDOWN TIMER CHALLENGE
+# ================================
+# Topics:
+# What Is Recursion? | Base Case | Build and Unwind
+# Counting with Recursion | Factorial Using Recursion | Stack Overflow
 
-input("Stack overflow - each call adds a frame to the stack  limit is 1000.  Press Enter ")
-print("  sum_down(3) =", sum_down(3), "  uses 3 frames")
-print("  sum_down(5) =", sum_down(5), "  uses 5 frames")
+print("================================")
+print("MY COUNTDOWN TIMER CHALLENGE")
+print("================================")
 
-n = int(input("Enter a number (try 6 or 9): "))
-input("sum_down(n) = n + (n-1) + ... + 1  uses n frames.  Press Enter ")
-print("  sum_down(" + str(n) + ") =", sum_down(n), "  frames used:", n)
+
+# ------------------------------------------------
+# PART 1 — WHAT IS RECURSION?
+# ------------------------------------------------
+# Recursion means a function calls itself.
+# A recursive function must have:
+# 1. A base case to stop
+# 2. A recursive call with a smaller problem
+
+
+# ------------------------------------------------
+# PART 2 — COUNTDOWN WITH RECURSION
+# ------------------------------------------------
+
+def countdown(number):
+    # Base Case
+    if number == 0:
+        print("Time is up!")
+        return
+
+    print(number)
+    countdown(number - 1)
+
+
+print("
+Countdown from 5:")
+countdown(5)
+
+
+# ------------------------------------------------
+# PART 3 — HOW RECURSION BUILDS AND UNWINDS
+# ------------------------------------------------
+
+def build_and_unwind(level):
+    # Base Case
+    if level == 0:
+        print("Base case reached. Now unwinding begins.")
+        return
+
+    print("Building level:", level)
+    build_and_unwind(level - 1)
+    print("Unwinding level:", level)
+
+
+print("
+Build and Unwind Demo:")
+build_and_unwind(3)
+
+
+# ------------------------------------------------
+# PART 4 — COUNTING WITH RECURSION
+# ------------------------------------------------
+
+def count_up(number):
+    # Base Case
+    if number > 10:
+        return
+
+    print(number)
+    count_up(number + 1)
+
+
+print("
+Counting from 1 to 10:")
+count_up(1)
+
+
+# ------------------------------------------------
+# PART 5 — FACTORIAL USING RECURSION
+# ------------------------------------------------
+
+def factorial(number):
+    # Base Case
+    if number == 0 or number == 1:
+        return 1
+
+    return number * factorial(number - 1)
+
+
+print("
+Factorial Result:")
+print("5! =", factorial(5))
+
+
+# ------------------------------------------------
+# PART 6 — STACK OVERFLOW SAFETY DEMO
+# ------------------------------------------------
+# Warning:
+# If a recursive function does not have a base case,
+# it keeps calling itself and may cause a stack overflow.
+# Do not run this function unless you understand the risk.
+
+def unsafe_countdown(number):
+    print(number)
+    # Missing base case - this can cause stack overflow
+    # unsafe_countdown(number - 1)
+
+
+print("
+Stack Overflow Note:")
+print("A recursive function must have a base case to stop safely.")
+print("The unsafe_countdown function is written but not called.")
+print("================================")
