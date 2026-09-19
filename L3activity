@@ -1,0 +1,47 @@
+# 01-head-tail.py
+# Topic: The Head-Tail Pattern, Base Case for Lists
+
+input("Head-tail - head is lst[0]  tail is lst[1:]  base case is [].  Press Enter ")
+print("  [10, 20, 30]  head:", [10, 20, 30][0], "  tail:", [10, 20, 30][1:])
+print("  [5, 15, 25]   head:", [5, 15, 25][0],  "  tail:", [5, 15, 25][1:])
+
+lst = [int(x) for x in input("Enter 3 numbers separated by spaces: ").split()]
+guess = input("What is the head of " + str(lst) + "? ")
+input("Head is lst[0]  tail is lst[1:].  Press Enter ")
+print("  head:", lst[0], "  your guess:", guess)
+
+# 02-list-sum.py
+# Topic: Sorted Check with Recursion, Sum of a List with Recursion
+
+def list_sum(lst):
+    if lst == []:
+        return 0
+    return lst[0] + list_sum(lst[1:])
+
+input("Recursive sum - add head to sum of tail until empty.  Press Enter ")
+print("  list_sum([1, 2, 3]) =", list_sum([1, 2, 3]))
+print("  list_sum([4, 5, 6]) =", list_sum([4, 5, 6]))
+
+lst = [int(x) for x in input("Enter 4 numbers separated by spaces: ").split()]
+guess = input("What is the sum of " + str(lst) + "? ")
+input("list_sum adds head to list_sum(tail) until the list is empty.  Press Enter ")
+print("  sum:", list_sum(lst), "  your guess:", guess)
+
+# 03-list-max.py
+# Topic: Largest Element with Recursion
+
+def list_max(lst):
+    if len(lst) == 1:
+        return lst[0]
+    rest = list_max(lst[1:])
+    return lst[0] if lst[0] > rest else rest
+
+input("Recursive max - compare head to max of tail.  Press Enter ")
+print("  list_max([3, 7, 2]) =", list_max([3, 7, 2]))
+print("  list_max([8, 1, 5]) =", list_max([8, 1, 5]))
+
+n = int(input("Enter a number (try 6 or 15): "))
+lst = [n, 4, 9, 2]
+guess = input("What is the largest in " + str(lst) + "? ")
+input("list_max compares head to max of tail at each step.  Press Enter ")
+print("  largest:", list_max(lst), "  your guess:", guess)
