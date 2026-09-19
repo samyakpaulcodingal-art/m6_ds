@@ -1,0 +1,51 @@
+# 01-linear-tail.py
+# Topic: Linear Recursion, Tail Recursion
+
+def tail_sum(n, acc=0):
+    if n == 0:
+        return acc
+    return tail_sum(n - 1, acc + n)
+
+input("Tail recursion - the last action is the recursive call with an accumulator.  Press Enter ")
+print("  tail_sum(4) =", tail_sum(4), "  = 4 + 3 + 2 + 1")
+print("  tail_sum(5) =", tail_sum(5), "  = 5 + 4 + 3 + 2 + 1")
+
+n = int(input("Enter a number (try 3 or 6): "))
+guess = input("What is tail_sum(" + str(n) + ")? ")
+input("tail_sum adds n to acc at each step - acc builds as n counts down.  Press Enter ")
+print("  tail_sum(" + str(n) + ") =", tail_sum(n), "  your guess:", guess)
+
+# 02-head-increasing.py
+# Topic: Head Recursion, Increasing-Decreasing
+
+def mirror(n):
+    if n == 0:
+        return 0
+    rest = mirror(n - 1)
+    return rest + 2 * n
+
+input("Head recursion - recurse first  then add 2*n on the way back.  Press Enter ")
+print("  mirror(3) =", mirror(3))
+print("  mirror(4) =", mirror(4))
+
+n = int(input("Enter a number (try 5 or 6): "))
+guess = input("What is mirror(" + str(n) + ")? ")
+input("mirror(n) = mirror(n-1) + 2*n  adds 2*n as it unwinds back up.  Press Enter ")
+print("  mirror(" + str(n) + ") =", mirror(n), "  your guess:", guess)
+
+# 03-tree-recursion.py
+# Topic: Tree Recursion
+
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+input("Tree recursion - two recursive calls per step.  Press Enter ")
+print("  fib(5) =", fib(5))
+print("  fib(6) =", fib(6))
+
+n = int(input("Enter n (try 4 or 7): "))
+guess = input("What is fib(" + str(n) + ")? ")
+input("Fibonacci: fib(n) = fib(n-1) + fib(n-2)  base: fib(0)=0 fib(1)=1.  Press Enter ")
+print("  fib(" + str(n) + ") =", fib(n), "  your guess:", guess)
